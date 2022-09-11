@@ -2,10 +2,48 @@ extends ../layout/main
 
 block variables
 	- var title = 'Создаем решения для роста бизнеса';
-	- var description = 'Создаем решения для роста бизнеса';
 	- var pageClass = 'index-page';
 
 block content
-	section
-		h1 Создаем решения для роста бизнеса
-		p hello pugb
+	section.promo
+		.container
+			.promo__inner
+				.promo__image
+					img(src="../../assets/img/index-img.svg" alt="cube")
+				.promo__info
+					h1.promo__title Создаем решения
+					h3.promo__subtitle 
+						span Для роста бизнеса
+						.promo__hexagons
+							img(src="../../assets/img/hexagons.svg" alt="hexagons")
+					p.promo__text На основе анализа данных с алгоритмами реализации
+					button.promo__button.button Обсудить проблему
+					.promo__arrows
+						img(src="../../assets/img/arrows.svg" alt="arrows")
+	section.questions
+		.container
+			ul.questions__list
+				li.questions__question Как увеличить прибыль, управляя ценами?
+				li.questions__question Как избежать проблем на старте нового бизнеса?
+				li.questions__question Как найти точки роста и определить цели?
+				li.questions__question Как не попасть в "черную дыру" затрат на продвижение?
+	section.services#services
+		.container
+			h3.services__title Услуги
+			.services__cards.row.flex-wrap
+				a(href="#").services__card.col-sm-12.col-md-6.col-lg-4
+					.services__icon
+						img(src="../../assets/img/icons/report.svg" alt="report icon")
+					p.services__text Разрабатываем маркетинг-план: дорожная карта достижения целей
+				a(href="#").services__card.col-sm-12.col-md-6.col-lg-8
+					.services__icon
+						img(src="../../assets/img/icons/idea.svg" alt="idea icon")
+					p.services__text Повышаем эффективность продвижения: аудит существующей модели
+				a(href="#").services__card.col-sm-12.col-md-6.col-lg-4
+					.services__icon
+						img(src="../../assets/img/icons/search.svg" alt="search icon")
+					p.services__text Находим скрытую прибыль: анализ модели ценообразования
+				a(href="/service.html").services__card.col-sm-12.col-md-6.col-lg-4
+					.services__icon
+						img(src="../../assets/img/icons/startup.svg" alt="startup icon")
+					p.services__text Запускаем новый проект: start-up маркетинг

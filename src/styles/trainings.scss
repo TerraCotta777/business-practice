@@ -1,0 +1,130 @@
+.trainings {
+  margin-top: 48px;
+  margin-bottom: 38px;
+
+  &__cards {
+    @include flex-column;
+    position: relative;
+    margin-top: 31px;
+    font-family: "Lato";
+  }
+
+  &__card {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 30px 29px;
+    overflow: hidden;
+    background-color: $main-bg-color;
+    box-shadow: 4px 4px 20px rgba(40, 44, 55, 0.2);
+    border-radius: 20px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__clue {
+    p {
+      margin-bottom: 5px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  &__program {
+    max-width: 503px;
+    margin-top: 15px;
+    align-self: flex-start;
+
+    li {
+      padding-bottom: 16px;
+      padding-left: 44px;
+      font-size: 17px;
+      line-height: 20px;
+      background: url("../assets/img/icons/list-style-logo.svg") 0 0/23px 25px
+        no-repeat;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .trainings {
+    margin-top: 68px;
+    margin-bottom: 58px;
+
+    &__cards {
+      margin-top: 51px;
+    }
+
+    &__card {
+      margin-bottom: 40px;
+      padding: 39px 38px;
+    }
+
+    &__info {
+      flex-direction: row;
+    }
+
+    &__clue {
+      flex-basis: 66%;
+      margin-right: 23px;
+    }
+
+    &__title {
+      margin-bottom: 32px;
+      font-size: 30px;
+      line-height: 37px;
+    }
+
+    &__card:nth-child(2) {
+      .trainings__title {
+        margin-bottom: 25px;
+      }
+
+      .trainings__button {
+        margin-top: -3px;
+      }
+    }
+
+    &__card:nth-child(3) {
+      height: 270px;
+
+      .trainings__title {
+        margin-bottom: 27px;
+      }
+
+      .trainings__button {
+        transform: translateY(-41px);
+      }
+    }
+
+    &__program {
+      li {
+        padding-left: 64px;
+      }
+    }
+
+    &__button {
+      margin: 22px 0 0;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .trainings {
+    &__clue {
+      flex-basis: 46%;
+      margin-right: 53px;
+    }
+  }
+}

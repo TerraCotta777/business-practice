@@ -1,0 +1,98 @@
+.questions__list {
+  position: relative;
+  max-width: 315px;
+  margin: 79px auto 104px;
+}
+
+.questions__list::after {
+  content: "";
+  position: absolute;
+  bottom: -115%;
+  left: 4%;
+  z-index: -1;
+  width: 150%;
+  height: 115px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/img/line3.svg");
+}
+
+.questions__question {
+  margin-bottom: 40px;
+  padding-left: 60px;
+  background: url("../assets/img/icons/list-style-logo.svg") 0% 15% no-repeat;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (min-width: 768px) {
+  .questions__list {
+    max-width: unset;
+    margin: 83px 25px 100px 36px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    grid-row-gap: 51px;
+    grid-column-gap: 34px;
+  }
+  .questions__question {
+    max-width: 256px;
+    margin-bottom: 0;
+    padding-left: 64px;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .questions__question:first-child {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+    grid-column-end: 3;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .questions__question:nth-child(2) {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .questions__question:nth-child(3) {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .questions__question:nth-child(4) {
+    max-width: 294px;
+  }
+}
+
+@media (min-width: 992px) {
+  .questions__list {
+    max-width: 975px;
+    margin: 0 auto;
+    grid-row-gap: 76px;
+    grid-column-gap: 215px;
+  }
+  .questions__list::after {
+    bottom: -124%;
+    left: 0%;
+    height: 168px;
+    background-image: url("../assets/img/line3-desktop.svg");
+  }
+  .questions__question {
+    max-width: 380px;
+    padding-left: 99px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .questions__question:nth-child(4) {
+    max-width: 367px;
+  }
+}

@@ -1,0 +1,127 @@
+.questions {
+  &__list {
+    position: relative;
+    max-width: 315px;
+    margin: 79px auto 95px;
+
+    &::after {
+      position: absolute;
+      bottom: -115%;
+      left: 4%;
+      z-index: -1;
+      width: 150%;
+      height: 115px;
+      background-repeat: no-repeat;
+      background-image: url("../assets/img/line3.svg");
+    }
+  }
+
+  &__question {
+    margin-bottom: 40px;
+    padding-left: 60px;
+    background: url("../assets/img/icons/list-style-logo.svg") 0% 15% no-repeat;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: pointer;
+		transition: all 0.2s;
+
+    &:hover {
+      text-decoration-line: underline;
+      color: #5391dc;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .questions {
+    &__list {
+      max-width: unset;
+      margin: 83px 25px 100px 33px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-row-gap: 50px;
+      grid-column-gap: 32px;
+
+      &::after {
+        content: "";
+      }
+    }
+
+    &__question {
+      max-width: 256px;
+      margin-bottom: 0;
+      padding-left: 64px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &__question:first-child {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    &__question:nth-child(2) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+			max-width: 261px;
+    }
+
+    &__question:nth-child(3) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+
+    &__question:nth-child(4) {
+      max-width: 303px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .questions {
+    &__list {
+      &::after {
+        transform: scaleX(1.2);
+        left: 21%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .questions {
+    &__list {
+      max-width: 975px;
+      margin: 0 auto;
+      grid-row-gap: 76px;
+      grid-column-gap: 215px;
+
+      &::after {
+        bottom: -124%;
+        left: 0%;
+        height: 170px;
+        background-image: url("../assets/img/line3-desktop.svg");
+        transform: scaleX(1);
+      }
+    }
+
+    .questions__question {
+      max-width: 380px;
+      padding-left: 99px;
+      font-size: 18px;
+      line-height: 22px;
+      background-position: 0 4px;
+
+      &:nth-child(4) {
+        max-width: 372px;
+      }
+    }
+  }
+}

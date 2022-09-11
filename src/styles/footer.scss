@@ -1,0 +1,43 @@
+.footer {
+  background-color: $footer-bg-color;
+
+  &__inner {
+    @include flex-column;
+    padding: 28px 0 26px;
+  }
+
+  &__social-networks {
+    width: 152px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__copyright {
+    margin: 22px 0 1px 0;
+    color: #9fa7b0;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+    font-family: "Lato";
+  }
+}
+
+@media (min-width: 576px) {
+  .footer {
+    &__inner {
+      padding: 23px 0 21px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &__copyright {
+      order: 1;
+			margin-top: 0;
+    }
+
+    &__social-networks {
+      order: 2;
+			width: 120px;
+    }
+  }
+}

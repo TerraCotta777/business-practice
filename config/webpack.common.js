@@ -22,9 +22,9 @@ module.exports = {
   },
   output: {
     path: PATHS.dist,
-    filename: "[name][contenthash].js",
+    filename: `${PATHS.assets}js/[name].[contenthash].js`,
     clean: true,
-    assetModuleFilename: "[name][ext]",
+    assetModuleFilename: "assets/[name][ext]",
   },
   devtool: "source-map",
   devServer: {
@@ -41,7 +41,21 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: function () {
+                  return [require("autoprefixer")];
+                },
+              },
+            },
+          },
+          "sass-loader",
+        ],
       },
       {
         test: /\.pug$/,
@@ -53,6 +67,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         type: "asset/resource",
       },
     ],

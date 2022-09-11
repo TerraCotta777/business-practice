@@ -1,0 +1,267 @@
+@import "~bootstrap/scss/bootstrap";
+@import "fonts";
+
+$main-bg-color: #ffffff;
+$footer-bg-color: #3f4750;
+$main-text-color: #282c37;
+$primary-color: #47cf34;
+$secondary-color: #6ca7ef;
+$main-button-bg-color: #287ee7;
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@import "header";
+@import "footer";
+@import "modal";
+@import "index-promo";
+@import "index-questions";
+@import "index-services";
+@import "trainings";
+@import "training";
+@import "service";
+
+*,
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+// html {
+// 	height: 100%;
+// }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  @include flex-column;
+	min-height: 100vh;
+  color: $main-text-color;
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+body > * {
+  width: 100%;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.content-wrapper {
+  .index-page {
+    font-family: "Lato";
+  }
+}
+
+.close {
+  position: absolute;
+  width: 28px;
+}
+
+.social-network svg path {
+  transition: all 0.2s;
+}
+
+.social-network:hover {
+  svg path {
+    fill: $primary-color;
+  }
+}
+
+.breadcrumbs {
+  font-family: "Roboto";
+  font-size: 14px;
+  line-height: 16px;
+  color: #9fa7b0;
+
+  * {
+    margin-right: 15px;
+  }
+
+  .active {
+		display: inline-block;
+    color: #282c37;
+  }
+}
+
+.form {
+  max-width: 643px;
+  margin: 0 auto;
+  padding: 38px 26px 37px 27px;
+  box-shadow: 4px 4px 20px rgba(40, 44, 55, 0.2);
+  border-radius: 20px;
+  background-color: $main-bg-color;
+
+  &__input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 23px;
+    padding: 14px 21px;
+    border: 1px solid #9fa7b0;
+    border-radius: 8px;
+
+    &::placeholder {
+      font-style: italic;
+      font-size: 18px;
+      line-height: 22px;
+      color: #9fa7b0;
+    }
+  }
+
+  .form__button {
+    width: 100%;
+  }
+}
+
+.button {
+  width: auto;
+  padding: 15px 31px 13px 32px;
+  border: none;
+  background: $primary-color;
+  color: $main-bg-color;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 20px;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #30b01e;
+  }
+}
+
+.button_training {
+  width: 229px;
+  height: 48px;
+  padding: 0 23px;
+  @include flex;
+  border-radius: 8px;
+  color: $main-bg-color;
+  background-color: $main-button-bg-color;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #30b01e;
+		color: $main-bg-color;
+  }
+}
+
+.button-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+@media (min-width: 992px) {
+  .trainings,
+  .training,
+  .service {
+    background: url("../assets/img/trainings-bg.svg") 100% 2% no-repeat;
+  }
+
+  .form-section {
+    padding-top: 88px;
+    padding-bottom: 70px;
+    background: url(http://localhost:3000/assets/hexagon.svg) 14.5% 7%/197px
+        199px no-repeat,
+      url(http://localhost:3000/assets/hexagon.svg) 3.5% 63%/137px 137px
+        no-repeat,
+      url(http://localhost:3000/assets/hexagon.svg) 93.5% 88%/252px 253px
+        no-repeat;
+  }
+
+  .form {
+    height: 349px;
+    padding: 78px 56px 77px 57px;
+
+    &__input {
+      width: 100%;
+      height: 50px;
+      margin-bottom: 23px;
+      padding: 14px 21px;
+      border: 1px solid #9fa7b0;
+      border-radius: 8px;
+
+      &::placeholder {
+        font-style: italic;
+        font-size: 18px;
+        line-height: 22px;
+        color: #9fa7b0;
+      }
+    }
+
+    .form__button {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .trainings,
+  .training,
+  .service {
+    background: url("../assets/img/trainings-bg.svg") 100% -3% no-repeat,
+      url("../assets/img/hexagon.svg") 8.2% 2.8% no-repeat;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1700px) {
+  .container {
+    max-width: 1196px;
+  }
+}

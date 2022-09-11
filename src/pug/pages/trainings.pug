@@ -1,0 +1,57 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Тренинги';
+	- var pageClass = 'trainings-page';
+
+block content
+	.trainings
+		.container
+			.breadcrumbs
+				a(href="/") Главная 
+				span /
+				a.active(href="/trainings.html") Тренинги
+			.section.trainings__cards
+				.trainings__card
+					.trainings__info
+						.trainings__clue
+							h3.trainings__title Бизнес-тренинг «Маркетинг – технология роста»
+							p Для кого: руководители компаний, маркетологи, продавцы
+							p Цели бизнес-тренинга:
+						ul.trainings__program
+							li Определение маркетинга как технологии роста
+							li Организация маркетинга как сквозного бизнес-процесса
+							li Получение практических навыков применения технологии маркетинга
+					a.trainings__button.button_training.button(href="/first-training.html")
+						span Подробнее
+						span.button-icon
+							img(src="../../assets/img/icons/arrow-circle-right.svg" alt="arrow right")
+				.trainings__card
+					.trainings__info
+						.trainings__clue
+							h3.trainings__title Тренинг с длинным названием в 3 текстовой строчки
+							p Для кого: руководители компаний, маркетологи, продавцы
+							p Цели бизнес-тренинга:
+						ul.trainings__program
+							li Определение маркетинга как технологии роста
+							li Организация маркетинга как сквозного бизнес-процесса
+							li Получение практических навыков применения технологии маркетинга
+							li Получение практических навыков применения технологии маркетинга
+					a.trainings__button.button_training.button(href="#")
+						span Подробнее
+						span.button-icon
+							img(src="../../assets/img/icons/arrow-circle-right.svg" alt="arrow right")
+				.trainings__card
+					.trainings__info
+						.trainings__clue
+							h3.trainings__title Короткое название
+							p Для кого: руководители компаний, маркетологи, продавцы
+							p Цели бизнес-тренинга:
+						ul.trainings__program
+							li Определение маркетинга как технологии роста
+							li Организация маркетинга как сквозного бизнес-процесса
+							li Получение практических навыков применения технологии маркетинга
+					a.trainings__button.button_training.button(href="#")
+						span Подробнее
+						span.button-icon
+							img(src="../../assets/img/icons/arrow-circle-right.svg" alt="arrow right")

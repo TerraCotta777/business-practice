@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const PATHS = {
   src: path.join(__dirname, "../src"),
@@ -79,6 +80,8 @@ module.exports = {
     alias: {
       "~": PATHS.src,
       "@": `${PATHS.src}/js`,
+      images: PATHS.src + "/assets/img/",
+      icons: PATHS.src + "/assets/img/icons/",
     },
   },
   plugins: [

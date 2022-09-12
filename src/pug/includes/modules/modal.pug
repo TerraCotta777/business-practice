@@ -1,14 +1,14 @@
 .modal
 	.modal__window
 		.modal__close.close
-			img(src="../../assets/img/icons/close.svg" alt="close")
+			img(src=require("icons/close.svg") alt="close")
 		h3.modal__title Оставьте заявку
 		form.modal__form
-			input.modal__input(placeholder='Ваше имя' type='text' )
-			p.modal__error-message 
-			input.modal__input(placeholder="Email" type='email' )
-			p.modal__error-message 
-			textarea.modal__input(placeholder="Пожалуйста опишите вашу проблему")
-			p.modal__error-message 
+			input.modal__input(placeholder='Ваше имя' type='text' required)
+			p.modal__error-message.error-message 
+			input.modal__input(placeholder="Email" type='email' required)
+			p.modal__error-message.error-message 
+			textarea.modal__input(placeholder="Пожалуйста опишите вашу проблему" required)
+			p.modal__error-message.error-message 
 			button.modal__button(type='submit') Отправить
-			p.modal__success Ваша заявка успешно отправлена!
+			p.modal__success.success-message Ваша заявка успешно отправлена!

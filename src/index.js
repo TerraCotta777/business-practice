@@ -7,12 +7,17 @@ const headerLinks = document.querySelectorAll(
   ".header__mobile-menu .header__link"
 );
 const body = document.querySelector("body");
-const buttonModalOpen = document.querySelectorAll("button.button");
+const buttonModalOpen = document.querySelector(".promo__button");
 const modalWindow = document.querySelector(".modal");
 const buttonModalClose = document.querySelector(".modal__close");
-const modalSubmitButton = document.querySelector(".modal__button");
-const inputsModal = document.querySelectorAll(".modal__input");
-const modalSuccessMessage = document.querySelector(".modal__success");
+const modalSubmitButton = modalWindow.querySelector(".modal__button");
+const inputsModal = modalWindow.querySelectorAll(".modal__input");
+const modalSuccessMessage = modalWindow.querySelector(".modal__success");
+
+const form = document.querySelector("form.form");
+const inputsForm = form?.querySelectorAll(".form__input");
+const formSubmitButton = form?.querySelector(".form__button");
+const formSuccessMessage = form?.querySelector(".form__success");
 
 const navLinks = document.querySelectorAll(".header__nav a");
 
@@ -54,25 +59,21 @@ const modal = () => {
 
   const modalSubmit = (e) => {
     e.preventDefault();
-    let isValid = true;
-    inputsModal.forEach((input) => (isValid = isValid && validate(input)));
-    if (isValid) {
-      modalSubmitButton.disabled = true;
-      modalSubmitButton.textContent = "идет отправка...";
-
-      setTimeout(() => {
-        modalSubmitButton.disabled = false;
-        modalSuccessMessage.style.display = "block";
-        modalSubmitButton.textContent = "Отправить";
-      }, 2000);
-    }
+    submit(inputsModal, modalSubmitButton, modalSuccessMessage);
   };
 
-  buttonModalOpen.forEach((button) => {
-    button.addEventListener("click", openModal);
-  });
+  buttonModalOpen?.addEventListener("click", openModal);
   buttonModalClose.addEventListener("click", closeModal);
   modalSubmitButton.addEventListener("click", modalSubmit);
+};
+
+const formHandle = () => {
+  const formSubmit = (e) => {
+    e.preventDefault();
+    submit(inputsForm, formSubmitButton, formSuccessMessage);
+  };
+
+  formSubmitButton?.addEventListener("click", formSubmit);
 };
 
 const validate = (input) => {
@@ -80,7 +81,7 @@ const validate = (input) => {
     const mailformat = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     if (!input.value.match(mailformat)) {
       input.classList.add("error");
-      input.nextElementSibling.textContent = "enter valid email address";
+      input.nextElementSibling.textContent = "введите валидный email";
       return false;
     } else {
       input.classList.remove("error");
@@ -97,6 +98,22 @@ const validate = (input) => {
   }
 };
 
+const submit = (inputs, button, message) => {
+  let isValid = true;
+  inputs.forEach((input) => (isValid = isValid && validate(input)));
+  if (isValid) {
+    button.disabled = true;
+    button.textContent = "идет отправка...";
+
+    setTimeout(() => {
+      button.disabled = false;
+      message.style.display = "block";
+      button.textContent = "Отправить";
+      inputs.forEach((input) => (input.value = ""));
+    }, 2000);
+  }
+};
+
 const activePage = () => {
   let page = window.location.href.replace(/^(?:\/\/|[^/]+)*\//, "");
   navLinks.forEach((link) => {
@@ -109,4 +126,5 @@ const activePage = () => {
 
 menuSlide();
 modal();
+formHandle();
 activePage();

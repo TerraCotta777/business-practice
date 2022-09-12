@@ -82,12 +82,6 @@
   &__error-message {
     margin-top: 5px;
     margin-left: 7px;
-    display: none;
-    font-style: italic;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: left;
-    color: #cf4747;
   }
 
   &__button {
@@ -116,13 +110,7 @@
   }
 
   &__success {
-    display: none;
 		margin: 0 auto 20px;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    color: #30b01e;
   }
 }
 

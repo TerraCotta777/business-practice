@@ -24,7 +24,7 @@ block content
 			button.training__button.trainings__button.button_training.button(href="/first-training.html")
 				span Подробнее
 				span.button-icon
-					img(src="../../assets/img/icons/arrow-circle-right.svg" alt="arrow right")
+					img(src=require("icons/arrow-circle-right.svg") alt="arrow right")
 
 			.training__info
 				h3.training__subtitle Программа бизнес-тренинга
@@ -79,6 +79,9 @@ block content
 
 			.form-section
 				form.training__form.form
-					input.form__input(type="text" placeholder="Ваше имя")
-					input.form__input(type="text" placeholder="Email")
+					input.form__input(type="text" placeholder="Ваше имя" required)
+					p.form__error-message.error-message
+					input.form__input(type="email" placeholder="Email" required)
+					p.form__error-message.error-message
 					button.form__button.button(type="submit") Получить консультацию
+					p.form__success.success-message Ваша заявка успешно отправлена!

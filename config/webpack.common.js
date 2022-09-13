@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 const PATHS = {
@@ -44,10 +45,15 @@ module.exports = {
         test: /\.scss$/,
         use: [
           "style-loader",
-          "css-loader",
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { sourceMap: true },
+          },
           {
             loader: "postcss-loader",
             options: {
+              sourceMap: true,
               postcssOptions: {
                 plugins: function () {
                   return [require("autoprefixer")];
@@ -56,6 +62,25 @@ module.exports = {
             },
           },
           "sass-loader",
+        ],
+      },
+      {
+        // css
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { sourceMap: true },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              config: { path: `./postcss.config.js` },
+            },
+          },
         ],
       },
       {
@@ -85,6 +110,9 @@ module.exports = {
     },
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: `${PATHS.assets}css/[name].[contenthash].css`,
+    }),
     ...PAGES.map(
       (page) =>
         new HtmlWebpackPlugin({
